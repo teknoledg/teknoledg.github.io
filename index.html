@@ -11,13 +11,14 @@
         .fullscreen {
             display: flex;
             background-image: linear-gradient(to bottom right, #153965, #72829B, #D99BA5, #D9589A);
-            background-size: cover; /* Added */
+            background-size: 100%;
             background-repeat: no-repeat;
             margin: 0px;
             padding: 0px;
             height: 100%;
             width: 100%;
             position: fixed;
+            overflow: hidden; /* Added to prevent scrolling */
         }
 
         .content {
@@ -26,7 +27,7 @@
             z-index: 1;
         }
 
-        @media (max-width: 600px) { /* Changed the max-width value */
+        @media (max-width: 600px) {
             .content {
                 padding: 20px;
             }
@@ -34,24 +35,24 @@
 
         .image-container {
             position: fixed;
-            bottom: 0px;
-            right: 20px; /* Adjusted margin-right to right */
+            bottom: 0;
+            right: 0;
             z-index: 2;
-            margin:0;
-            padding:0;
+            margin: 0;
+            padding: 20px; /* Added padding */
+            box-sizing: border-box; /* Added to include padding in width and height */
         }
 
         .image-container img {
-            width: fit-content;
-            height: fit-content;
-            position: fixed;
-            margin-right: 0px;
+            max-width: 100%; /* Adjusted to ensure image responsiveness */
+            max-height: calc(100vh - 40px); /* Adjusted height to fit within viewport */
         }
+
         .logo {
-            display: flex; /* Changed from display: box; */
-            justify-content: center; /* Added */
-            align-items: center; /* Added */
-            width: 20%; /* Corrected syntax */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 20%;
         }
 
         p {
