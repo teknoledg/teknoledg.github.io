@@ -4,48 +4,47 @@
     <title>teknoledg - we'll soon restore order, improve security and balance the data economy.</title>
     <style>
         body {
-            margin: 0px;
-            padding: 0px;
+            margin: 0;
+            padding: 0;
             background-color: black;
         }
         .fullscreen {
-            display: box;
-            background-image: linear-gradient(#153965, #72829B, #D99BA5, #D9589A);
+            display: flex; /* Changed from display: box; */
+            background-image: linear-gradient(to bottom right, #153965, #72829B, #D99BA5, #D9589A); /* Adjusted gradient colors */
             background-size: 100%;
             background-repeat: no-repeat;
-            margin:0;
-            padding-right:20px;
-            height: 1 vh;
+            margin: 0;
+            padding-right: 20px;
+            height: 100vh; /* Changed to 100vh */
             width: 100%;
-            
         }
 
         .content {
             text-align: center;
             padding: 50px;
             color: #fff;
-            
         }
 
-        @media (max-width: 300px) {
+        @media (max-width: 600px) {
             .content {
-                padding: 20px;
-                width: 10%;
+                padding: 20px; /* Adjusted padding for smaller screens */
             }
         }
 
         .image-container {
-            display: block;
             position: fixed;
-            bottom: 0px;
+            bottom: 0;
             right: 20px;
-            float: right;
         }
-
+        
         .image-container img {
+            position: absolute; /* Changed from display: block; */
+            bottom: 0;
+            right: 0; /* Changed from float: right; */
             width: fit-content;
             max-width: 50%;
         }
+
         p {
             font-family: 'Roboto', sans-serif;
             font-weight: 300;
@@ -61,8 +60,6 @@
     
         <div class="image-container">
             <img src="images/Ai-selfie.png" alt="Image">
-        </div>
-        </div>
         </div>
     </div>
 </body>
