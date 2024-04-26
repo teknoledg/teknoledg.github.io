@@ -50,8 +50,24 @@
             max-width: 100%; /* Adjusted to ensure image responsiveness */
             max-height: calc(100vh - 40px); /* Adjusted height to fit within viewport */
             bottom: -5px;
+            opacity: 0;
+            animation: fade 5s infinite;
         }
 
+        @keyframes fade {
+            0% {
+                opacity: 0;
+            }
+            20% {
+                opacity: 1;
+            }
+            80% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
         .logo {
             display: flex;
             justify-content: center;
