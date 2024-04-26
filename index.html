@@ -95,4 +95,31 @@
 <body>
     <div class="fullscreen">
         <div class="content">
-            <h1><img class="logo" src="images/teknoledge-holdings-white@0.5x.png" alt="Teknoledge Holdings"></h
+            <h1><img class="logo" src="images/teknoledge-holdings-white@0.5x.png" alt="Teknoledge Holdings"></h1>
+            <div id="tagline">
+                <p class="logo">Empowering users with personal data security and control.</p>
+            </div>
+        </div>
+    
+        <div class="ai">
+            <img src="images/ai-selfie-1.png" alt="Image" class="visible">
+            <img src="images/ai-selfie-2.png" alt="Image">
+        </div>
+    </div>
+
+    <script>
+        window.onload = function() {
+            var images = document.querySelectorAll('.ai img');
+            var index = 0;
+
+            function toggleImages() {
+                images[index % images.length].classList.toggle('visible');
+                images[(index + 1) % images.length].classList.toggle('visible');
+                index++;
+            }
+
+            setInterval(toggleImages, 5000); // Change images every 5 seconds
+        };
+    </script>
+</body>
+</html>
