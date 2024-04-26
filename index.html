@@ -90,7 +90,23 @@
             width: 100%;
             height: 100vh;
             right: 50%;
->>>>>>> 58c0e59 (pull snc)
+            opacity: 0;
+            animation: fade 5s infinite;
+        }
+
+        @keyframes fade {
+            0% {
+                opacity: 0;
+            }
+            20% {
+                opacity: 1;
+            }
+            80% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
         }
     </style>
 </head>
@@ -116,22 +132,9 @@
 >>>>>>> 58c0e59 (pull snc)
     </div>
 
-    <script>
-        window.onload = function() {
-            var images = document.querySelectorAll('.ai img');
-            var index = 0;
-
-            function toggleImages() {
-                images[index].classList.remove('visible');
-                index = (index + 1) % images.length;
-                images[index].classList.add('visible');
-            }
-
-            setTimeout(function() {
-                toggleImages();
-                setInterval(toggleImages, 2500); // Change images every 2.5 seconds
-            }, 2500); // Start the second image 2.5 seconds after the first
-        };
-    </script>
+    <div class="image-container">
+        <img src="images/ai-selfie-1.png" alt="Image">
+            <img src="images/ai-selfie-2.png" alt="Image">
+    </div>
 </body>
 </html>
