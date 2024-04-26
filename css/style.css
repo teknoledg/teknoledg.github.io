@@ -23,13 +23,31 @@ body {
     z-index: 1;
 }
 
-@media screen (min-width: 300px) {
+/* Mobile Vertical */
+@media screen and (max-width: 599px) {
     .content {
-        padding: 0px;
+        padding: 10px;
     }
 
     p {
-        size: 20px
+        font-size: 16px;
+        text-align: justify;
+    }
+
+    .logo {
+        width: 100%;
+    }
+}
+
+/* Mobile Horizontal */
+@media screen and (min-width: 600px) and (max-width: 899px) {
+    .content {
+        padding: 20px;
+    }
+
+    p {
+        font-size: 18px;
+        text-align: justify;
     }
 
     .logo {
@@ -37,9 +55,15 @@ body {
     }
 }
 
-@media screen (min-width: 500px) {
+/* Tablet Vertical */
+@media screen and (min-width: 900px) and (max-width: 1199px) {
     .content {
-        padding: 10px;
+        padding: 30px;
+    }
+
+    p {
+        font-size: 20px;
+        text-align: justify;
     }
 
     .logo {
@@ -47,16 +71,40 @@ body {
     }
 }
 
-@media screen (min-width: 700px) {
+/* Tablet Horizontal / Desktop */
+@media screen and (min-width: 1200px) and (max-width: 1919px) {
     .content {
-        padding: 20px;
+        padding: 40px;
     }
 
     p {
-        size: 30px;
-        text-align: Justify;
+        font-size: 24px;
+        text-align: justify;
+    }
+
+    .logo {
+        width: 50%;
     }
 }
+
+/* 4K */
+@media screen and (min-width: 1920px) {
+    .content {
+        padding: 50px;
+    }
+
+    p {
+        font-size: 28px;
+        text-align: justify;
+    }
+
+    .logo {
+        width: 40%;
+    }
+}
+
+
+
 
 
 .ai {
