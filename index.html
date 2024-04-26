@@ -52,27 +52,12 @@
             bottom: -5px;
             opacity: 0;
             position: absolute;
-            animation: fade 10s infinite; /* Changed animation duration to 10s */
         }
 
-        .ai img:first-child {
-            opacity: 1; /* Ensuring the first image is fully opaque */
+        .ai img.visible {
+            opacity: 1; /* Ensuring the initially visible image is fully opaque */
         }
 
-        @keyframes fade {
-            0% {
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                opacity: 0;
-            }
-        }
         .logo {
             display: flex;
             justify-content: center;
@@ -102,7 +87,7 @@
         </div>
     
         <div class="ai">
-            <img src="images/ai-selfie-1.png" alt="Image">
+            <img src="images/ai-selfie-1.png" alt="Image" class="visible">
             <img src="images/ai-selfie-2.png" alt="Image">
         </div>
     </div>
@@ -113,9 +98,9 @@
             var index = 0;
 
             function toggleImages() {
-                images[index % images.length].style.opacity = 0;
-                images[(index + 1) % images.length].style.opacity = 1;
-                index++;
+                images[index % images.length].classList.remove('visible');
+                index = (index + 1) % images.length;
+                images[index].classList.add('visible');
             }
 
             setInterval(toggleImages, 5000); // Change images every 5 seconds
