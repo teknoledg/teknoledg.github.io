@@ -18,7 +18,7 @@
             height: 100%;
             width: 100%;
             position: fixed;
-            overflow: hidden; /* Added to prevent scrolling */
+            overflow: hidden; 
         }
 
         .content {
@@ -34,28 +34,38 @@
         }
 
         .ai {
-            margin-bottom: -20px;
+            bottom: -5px;
             right: 0;
-            z-index: 2;
+            z-index: 1;
             margin: 0;
-            padding: 0px; /* Added padding */
-            box-sizing: border-box; /* Added to include padding in width and height */
-            position: absolute;
+            padding: 0;
+            box-sizing: border-box;
+            position: fixed;
             bottom: 0;
             right: 0;
-            max-width: 80%;
+            height: 80vh;
+            width: auto;
+            flex: 1;
         }
 
         .ai img {
-            max-width: 100%; /* Adjusted to ensure image responsiveness */
-            max-height: calc(100vh - 40px); /* Adjusted height to fit within viewport */
-            bottom: -5px;
+            max-width: 100%;
+            max-height: 100%;
+            bottom: 0;
             opacity: 0;
-            position: absolute;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .ai img:nth-child(1) {
+            z-index: -1;
+        }
+
+        .ai img:nth-child(2) {
+            z-index: -2;
         }
 
         .ai img.visible {
-            opacity: 1; /* Ensuring the initially visible image is fully opaque */
+            opacity: 1;
         }
 
         .logo {
@@ -85,11 +95,12 @@
                 <p class="logo">Empowering users with personal data security and control.</p>
             </div>
         </div>
-    
+
         <div class="ai">
-            <img src="images/ai-selfie-1.png" alt="Image" class="visible">
-            <img src="images/ai-selfie-2.png" alt="Image">
+            <img src="images/ai-selfie-1.png" alt="Image" class="visible" id="1">
+            <img src="images/ai-selfie-2.png" alt="Image" class="visible" id="2">
         </div>
+    </div>
     </div>
 
     <script>
@@ -98,12 +109,15 @@
             var index = 0;
 
             function toggleImages() {
-                images[index % images.length].classList.remove('visible');
+                images[index].classList.remove('visible');
                 index = (index + 1) % images.length;
                 images[index].classList.add('visible');
             }
 
-            setInterval(toggleImages, 5000); // Change images every 5 seconds
+            setTimeout(function() {
+                toggleImages();
+                setInterval(toggleImages, 2500); // Change images every 2.5 seconds
+            }, 2500); // Start the second image 2.5 seconds after the first
         };
     </script>
 </body>
