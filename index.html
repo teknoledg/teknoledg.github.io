@@ -4,7 +4,24 @@
     <title>teknoledg - we'll soon restore order, improve security and balance the data economy.</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="js/script.js"></script>
-    <script src="components/home.js"></script>
+    <script">
+            var actionCodeSettings = {
+          // URL you want to redirect back to. The domain (www.example.com) for this
+          // URL must be in the authorized domains list in the Firebase Console.
+          url: 'https://teknoledg.github.io',
+          // This must be true.
+          // handleCodeInApp: true,
+          // iOS: {
+          //   bundleId: 'com.example.ios'
+          // },
+          // android: {
+          //   packageName: 'com.example.android',
+          //   installApp: true,
+          //   minimumVersion: '12'
+          // },
+          // dynamicLinkDomain: 'teknoledg.github.io/link'
+        };
+    </script>
 
 </head>
 <body>
@@ -16,7 +33,7 @@
             </div>
            <form id="email-form">
                 <input type="email" id="email-input" placeholder="Enter your email">
-                <button type="button" onclick="sendSignInLinkToEmail()">Send Sign-In Link</button>
+                <button type="button" onclick="sendSignInLinkToEmail()"> Send Sign-In Link </button>
             </form>
         </div>
 
@@ -26,6 +43,30 @@
         </div>
     </div>
     </div>
-    <script src="js/script.js"></script>
+   <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyCghJJ2wkzrJ5FAdwC8kq26kI8v4JJPtQ4",
+          authDomain: "tek-reg-fb.firebaseapp.com",
+          databaseURL: "https://tek-reg-fb-default-rtdb.europe-west1.firebasedatabase.app",
+          projectId: "tek-reg-fb",
+          storageBucket: "tek-reg-fb.appspot.com",
+          messagingSenderId: "621231861866",
+          appId: "1:621231861866:web:54ffdc776bf49f5ac8da13",
+          measurementId: "G-TQ67MD39QX"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+      </script>
+
 </body>
 </html>
