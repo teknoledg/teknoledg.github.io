@@ -2,6 +2,14 @@ body {
     margin: 0;
     padding: 0;
     background-color: black;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 14px;
+    font-weight: light;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-transform: none;
 }
 
 .fullscreen {
@@ -18,9 +26,10 @@ body {
 }
 
 .content {
-    text-align: center;
+    text-align: left;
     color: #fff;
     z-index: 1;
+    padding: 5%;
 }
 
 /* Mobile Vertical */
@@ -36,6 +45,17 @@ body {
 
     .logo {
         width: 100%;
+    }
+
+    .ai {
+        bottom: -5px;
+        padding-top: 10px;
+        width: auto;
+    }
+
+    .ai img {
+        max-height: calc(100vh - 20%);
+        object-fit: contain;
     }
 }
 
@@ -53,6 +73,17 @@ body {
     .logo {
         width: 80%;
     }
+
+    .ai {
+        bottom: -5px;
+        padding-top: 10px;
+        width: auto;
+    }
+
+    .ai img {
+        max-height: calc(100vh - 20%);
+        object-fit: contain;
+    }
 }
 
 /* Tablet Vertical */
@@ -68,6 +99,17 @@ body {
 
     .logo {
         width: 60%;
+    }
+
+    .ai {
+        bottom: -5px;
+        padding-top: 10px;
+        width: auto;
+    }
+
+    .ai img {
+        max-height: calc(100vh - 20%);
+        object-fit: contain;
     }
 }
 
@@ -85,6 +127,17 @@ body {
     .logo {
         width: 50%;
     }
+
+    .ai {
+        bottom: -5px;
+        padding-top: 10px;
+        width: auto;
+    }
+
+    .ai img {
+        max-height: calc(100vh - 20%);
+        object-fit: contain;
+    }
 }
 
 /* 4K */
@@ -101,13 +154,21 @@ body {
     .logo {
         width: 40%;
     }
+
+    .ai {
+        bottom: -5px;
+        padding-top: 10px;
+        width: auto;
+    }
+
+    .ai img {
+        max-height: calc(100vh - 20%);
+        object-fit: contain;
+    }
 }
 
-
-
-
-
 .ai {
+    object-fit: contain;
     display: flex;
     bottom: -5px;
     z-index: 1;
@@ -121,13 +182,18 @@ body {
 
 .ai img {
     display: flex;
-    max-width: 100%;
-    max-height: calc(100vh -20%) bottom: -5px;
+    max-height: calc(100vh - 20%);
+    bottom: -5px;
     opacity: 0;
     transition: opacity 1s ease-in-out;
     box-sizing: border-box;
+    width: 100%;
+    /* Added */
+    height: 100%;
+    /* Added */
+    object-fit: contain;
+    padding-top: 10px;
 }
-
 
 .ai img:nth-child(1) {
     z-index: -1;
@@ -137,6 +203,13 @@ body {
     z-index: -2;
 }
 
+.ai img.visible {
+    opacity: 1;
+    position: absolute;
+    max-height: calc(100vh - 20%);
+    bottom: -5px;
+    padding-top: 10px;
+}
 
 .logo {
     display: flex;
@@ -144,7 +217,30 @@ body {
     align-items: center;
     width: 45%;
     position: relative;
-    padding-bottom: -10px;
+}
+
+tagline {
+    margin-top: -5px;
+    text-align: justify;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45%;
+    position: relative;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 800;
+    size: 4em;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45%;
+    position: relative;
 }
 
 tagline {
@@ -156,9 +252,4 @@ p {
     font-family: 'Roboto', sans-serif;
     font-weight: 800;
     size: 4em;
-}
-
-.ai img.visible {
-    opacity: 1;
-    position: absolute;
 }
