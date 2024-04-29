@@ -11,3 +11,11 @@ firebase.auth().sendSignInLinkToEmail(email, actionCodeSettings)
     var errorMessage = error.message;
     // ...
   });
+
+var actionCodeSettings = {
+  // URL you want to redirect back to. The domain (www.example.com) for this
+  // URL must be in the authorized domains list in the Firebase Console.
+  url: 'https://teknoledg.guthub.io/thankyou',
+  // This must be true.
+  handleCodeInApp: true;
+};
