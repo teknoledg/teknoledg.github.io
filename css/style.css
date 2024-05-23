@@ -93,14 +93,14 @@ body {
 .ai img:nth-child(1) {
 	opacity: 0;
     z-index: -1;
-    transition: opacity 5s ease-in-out;
+    transition: opacity 5s ease-in-out;x
 }
 
 .ai img:nth-child(2) {
 	opacity: 0;
-    z-index: -20;
+    z-index: -2;
     transition: opacity 5s ease-in-out;
-    transiiton: blur 5s 20px:
+    transiiton: blur 5s 20px;
 }
 
 
@@ -111,7 +111,7 @@ body {
     position: relative;
     max-width: 40vw;
     top: 2vh;
-    left:2 vw;
+    left: 2vw;
     align-self: center;
 }
 
