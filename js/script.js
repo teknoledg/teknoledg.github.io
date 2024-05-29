@@ -2,7 +2,7 @@
  * ai-build.log
  * 
  * Log of changes made by AI:
- * - Rewrote the JavaScript code to align with CSS animations.
+ * - Updated the JavaScript code to align with CSS animations.
  * - Ensured the animation loops infinitely with one image coming in and the other fading/blurring out.
  * - Adjusted the script to display the second image coming into focus for 2.5 seconds.
  * - Delayed the animation of the second image by 2.5 seconds at the start.
@@ -45,5 +45,8 @@ window.onload = function() {
         setInterval(toggleImages, 2500); // Change images every 2.5 seconds
         toggleImages(); // Ensure one image is visible on load
         numberFlowSimulator(); // Start the number flow simulation
+        var tagline = document.createElement('p');
+        tagline.textContent = 'Secure, Live, Personal data streams, traded on PDX.';
+        document.body.appendChild(tagline); // Add tagline after the numbers
     }, 2500);
 }

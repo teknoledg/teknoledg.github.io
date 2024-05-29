@@ -1,0 +1,66 @@
+/* stylesheeet */
+
+.fullscreen {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    background-color: rgba(0, 0, 0, 0.1);
+    filter: blur(0px);
+}
+
+body {
+    background-image: linear-gradient(to bottom right, #153965, #72829B, #D99BA5, #D9589A);
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.logo-container img {
+    width: 60vw;
+    padding-top: 5vh;
+    padding-left: 5vw;
+    margin-bottom: -46px;
+}
+
+h4 {
+    color: white;
+    font-weight: 300;
+    font-size: 1.8vw;
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+    transform: scale(1.1);
+    margin-left: 12vw; /* Adjust the margin as needed */
+}
+
+.logo {
+    width: 20vw;
+}
+
+.ai-container {
+    position: fixed;
+    left: 20vw;
+    height: 90vh;
+    text-align: right;
+    right: 0;
+}
+
+.ai-img {
+    max-width: 90%;
+    max-height: 90vh; /* Ensuring the image never grows taller than the tagline */
+    display: block;
+    opacity: 1;
+    transition: opacity 2.5s ease-in-out;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+#img1, #img2 {
+    animation-delay: 0s;
+}
+
+#img2 {
+    animation-delay: 2.5s;
+}
+

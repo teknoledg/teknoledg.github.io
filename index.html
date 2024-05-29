@@ -4,7 +4,48 @@
 <head>
     <title>Secure, live, personal data streams traded on PDX</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/script.js"></script>
+    <script>
+        window.onload = function() {
+            var images = document.querySelectorAll('.ai-img');
+            var index = 0;
+
+            function toggleImages() {
+                images.forEach((img, i) => {
+                    if (i === index) {
+                        img.style.opacity = 1;
+                        <!-- img.style.filter = 'blur(0px)'; -->
+                    } else {
+                        img.style.opacity = 0;
+                        <!-- img.style.filter = 'blur(5px)'; -->
+                    }
+                });
+                index = (index + 1) % images.length;
+            }
+
+            function numberFlowSimulator() {
+                var numberElement = document.createElement('div');
+                numberElement.classList.add('number-flow');
+                numberElement.textContent = '1,106,021';
+                document.body.appendChild(numberElement);
+
+                setInterval(function() {
+                    numberElement.style.transform = 'translateY(-50px)';
+                    setTimeout(function() {
+                        numberElement.style.transform = 'translateY(0)';
+                    }, 1000);
+                }, 2000);
+            }
+
+            setTimeout(function() {
+                setInterval(toggleImages, 2500);
+                toggleImages();
+                numberFlowSimulator();
+                var tagline = document.createElement('p');
+                tagline.textContent = 'Secure Personal data streams, traded on PDX.';
+                document.body.appendChild(tagline);
+            }, 2500);
+        }
+    </script>
 </head>
 
 <body>
@@ -12,9 +53,14 @@
         <div class="logo-container">
             <img class="logo" src="images/teknoledge-holdings-white@0.5x.png" alt="Teknoledge Holdings">
             <p id="tagline">.</p>
-        <div class="generation-prompt">
-            <h4 id="number-flow">1,106,021 Secure, Live, Personal data streams, traded on PDX.</h4>
-        </div>
+            <div class="generation-prompt">
+                <h4 id="number-flow" class="number-flow">
+                    <script>
+                        document.write(numberFlowGenerator());
+                    </script>
+                    Secure, Live, Personal data streams, traded on PDX.
+                </h4>
+            </div>
         </div>
         <div class="ai-container">
             <img src="images/ai-selfie-1.png" alt="Image 1" class="ai-img" id="img1">
