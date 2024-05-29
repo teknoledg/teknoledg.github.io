@@ -1,252 +1,66 @@
-body {
-    margin: 0;
-    padding: 0;
-    background-color: black;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 800;
-    color: white;
-
-}
+/* stylesheeet */
 
 .fullscreen {
-    display: flex;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    background-color: rgba(0, 0, 0, 0.1);
+    filter: blur(0px);
+}
+
+body {
     background-image: linear-gradient(to bottom right, #153965, #72829B, #D99BA5, #D9589A);
-    background-size: 100%;
-    background-repeat: no-repeat;
-    margin: 0px;
-    padding: 20px;
-    height: 100%;
-    width: 100%;
-    position: fixed;
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
     overflow: hidden;
-
 }
 
-.content {
-/* 
-    text-align: left;
-    color: #fff;
-    z-index: 1;
-    width: calc(100vw / 1.67) margin: 0;
-    padding-left: 5%;
-    width: 300px;
-    top:0px
- */
+.logo-container img {
+    width: 60vw;
+    padding-top: 5vh;
+    padding-left: 5vw;
+    margin-bottom: -46px;
 }
 
-.introtext {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 800;
-    font-size: 0.7em;
+h4 {
+    color: white;
     font-weight: 300;
-    color: #fff;
-
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding-left: 5%;
-    padding-right: 5%;
-
+    font-size: 1.8vw;
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+    transform: scale(1.1);
+    margin-left: 12vw; /* Adjust the margin as needed */
 }
-
-
-
-
-
-.login {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    border-radius: 5%;
-    margin: 5%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 300px;
-    height: 200px;
-
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-
-.ai {
-    display: flex;
-    bottom: -5px;
-    z-index: 1;
-    box-sizing: border-box;
-    position: fixed;
-    right: 0;
-/*     max-height: calc(100vh -20vh); */
-	height: 80vh;
-}
-
-.ai img {
-	display: flex;
-    opacity: 0;
-    height:80vh;
-    width; 90vw;
-}
-
-
-.ai img:nth-child(1) {
-	opacity: 0;
-    z-index: -1;
-    transition: opacity 5s ease-in-out;x
-}
-
-.ai img:nth-child(2) {
-	opacity: 0;
-    z-index: -2;
-    transition: opacity 5s ease-in-out;
-    transiiton: blur 5s 20px;
-}
-
 
 .logo {
-    display: flex;
-    justify-content: top;
-    align-items: left;
-    position: relative;
-    max-width: 40vw;
-    top: 2vh;
-    left: 2vw;
-    align-self: center;
+    width: 20vw;
 }
 
+.ai-container {
+    position: fixed;
+    left: 20vw;
+    height: 90vh;
+    text-align: right;
+    right: 0;
+}
 
-.ai img.visible {
+.ai-img {
+    max-width: 90%;
+    max-height: 90vh; /* Ensuring the image never grows taller than the tagline */
+    display: block;
     opacity: 1;
-    position: absolute;
+    transition: opacity 2.5s ease-in-out;
+    position: fixed;
+    bottom: 0;
+    right: 0;
 }
 
-.tagline {
-	display: flex;
-	overflow: hidden;
-	white-space: nowrap;
-	width: 100%;
-
-	}
-
-
-/* Mobile Vertical */
-@media screen and (max-width: 599px) {
-    .tagline (
-    	width: 90vww;
-    	dipslay:flex;
- 
-    ) .logo {
-        width: 90vw;
-    }
-    .ai {
-    max-width:90vw;
-    }
+#img1, #img2 {
+    animation-delay: 0s;
 }
 
-
-
-/* Mobile Horizontal */
-@media screen and (min-width: 600px) and (max-width: 899px) {
- /* 
-   .content {
-        padding: 20px;
-        width: calc(100vw / 1.67)    }
-
-    p {
-        font-size: 18px;
-    }
-
-
-    .tagline {
-        font-size: 1em;
-        overflow: hidden;
-        white-space: nowrap;
-        width: 100%;
-    }
-
-
-    .logo {
-        width: 80%;    }
-}
- */
-
-
-/* Tablet Vertical */
-@media screen and (min-width: 900px) and (max-width: 1199px) {
-/* 
-
-    .content {
-        padding: 30px;
-        /* width: calc(100vw / 1.67) */
-    /* 
+#img2 {
+    animation-delay: 2.5s;
 }
 
-    p {
-        font-size: 20px;
-    }
-
-    .tagline {
-        font-size: 1.5em;
-        overflow: hidden;
-        white-space: nowrap;
-        width: 60%
-    }
-
-    .logo {
- */
-        /* width: calc(100vw / 1.67); Adjust the divisor as needed */
-    }
-}
- */
-
-/* Tablet Horizontal / Desktop */
-@media screen and (min-width: 1200px) and (max-width: 1919px) {
-/* 
-    .content {
-/* 
-        padding: 40px;
-        /* width: calc(100vw / 1.67) */
-        display: flex;
- */
-    }
-
-    p {
-        font-size: 1em;
-
-    }
-
-/* 
-    .tagline {
-        font-size: 2em;
-        overflow: hidden;
-        white-space: nowrap;
-    }
- */
-
-    .logo {
-        /* width: calc(100vw / 1.67) */
-    }
-}
- */
-
-/* 4K */
-@media screen and (min-width: 1920px) {
-/* 
-    .content {
-        padding: 50px;
-        width: calc(100vw / 1.67);
-                display: flex;
-              
- */  justify: center;
-/* 
-    }
-
-    p {
-    }
-
-    .logo {
-        /* width: 40%; */
-    }
-}
- */
