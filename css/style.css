@@ -24,14 +24,36 @@ body {
     max-width: 50vw;
 }
 
-h4 {
+#tagline-container span#text-element,
+#tagline-container span#number-element {
     color: white;
     font-weight: 300;
-    font-size: 1.8vw;
+    font-size: 1.75vw;
     text-align: left;
     font-family: 'Roboto', sans-serif;
-    transform: scale(1.1);
-    margin-left: 12vw; /* Adjust the margin as needed */
+    transform: scale(1);
+    transform-origin: center;
+    display: flex;
+    padding-top: 5px;
+    padding-left: 4px;
+}
+#tagline-container span#number-element {
+    font-weight: 800;
+
+}
+#tagline-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 15px;
+    
+}
+
+
+.logo-container #tagline-container {
+    margin-top: 4.6vh;
+    padding-left: 5.3vw;
+    padding-right: 5.3vw;
+
 }
 
 .logo {
@@ -64,4 +86,3 @@ h4 {
 #img2 {
     animation-delay: 2.5s;
 }
-

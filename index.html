@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <title>Secure, live, personal data streams traded on PDX</title>
     <link rel="stylesheet" href="css/style.css">
@@ -13,53 +12,69 @@
                 images.forEach((img, i) => {
                     if (i === index) {
                         img.style.opacity = 1;
-                        <!-- img.style.filter = 'blur(0px)'; -->
                     } else {
                         img.style.opacity = 0;
-                        <!-- img.style.filter = 'blur(5px)'; -->
                     }
                 });
                 index = (index + 1) % images.length;
             }
 
             function numberFlowSimulator() {
-                var numberElement = document.createElement('div');
-                numberElement.classList.add('number-flow');
-                numberElement.textContent = '1,106,021';
-                document.body.appendChild(numberElement);
+                var numberElement = document.createElement('span');
+                numberElement.id = 'number-element';
+                var numberText = document.createTextNode('1,106,021');
+                numberElement.appendChild(numberText);
+                document.getElementById('tagline-container').appendChild(numberElement);
+
+                let speed = 1000;
+                let increment = 1000;
+
+                function updateNumber() {
+                    let currentNumber = parseInt(numberText.textContent.replace(/,/g, ''));
+                    currentNumber += increment;
+                    let numberStr = currentNumber.toLocaleString();
+                    numberText.textContent = numberStr;
+                }
 
                 setInterval(function() {
-                    numberElement.style.transform = 'translateY(-50px)';
-                    setTimeout(function() {
-                        numberElement.style.transform = 'translateY(0)';
-                    }, 1000);
-                }, 2000);
+                    updateNumber();
+                    speed = Math.floor(Math.random() * 1000) + 500;
+                    increment = Math.floor(Math.random() * 1000) + 500;
+                }, speed);
             }
 
             setTimeout(function() {
                 setInterval(toggleImages, 2500);
                 toggleImages();
                 numberFlowSimulator();
-                var tagline = document.createElement('p');
-                tagline.textContent = 'Secure Personal data streams, traded on PDX.';
-                document.body.appendChild(tagline);
             }, 2500);
         }
     </script>
-</head>
+    <style>
+        .digit {
+            display: inline-block;
+            transition: opacity 1s;
+        }
 
+        @keyframes rollUp {
+            0% { transform: translateY(100%); }
+            100% { transform: translateY(0); }
+        }
+
+        @keyframes rollDown {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(0); }
+        }
+    </style>
+</head>
 <body>
     <div class="fullscreen">
         <div class="logo-container">
             <img class="logo" src="images/teknoledge-holdings-white@0.5x.png" alt="Teknoledge Holdings">
-            <p id="tagline">.</p>
-            <div class="generation-prompt">
-                <h4 id="number-flow" class="number-flow">
-                    <script>
-                        document.write(numberFlowGenerator());
-                    </script>
-                    Secure, Live, Personal data streams, traded on PDX.
-                </h4>
+            <div class="wrapper">
+                <div id="tagline-container">
+                    <span id="number-element"></span><span id="text-element"> Secure, Live, Personal Data Streams traded on PDX.</span>
+                </div>
             </div>
         </div>
         <div class="ai-container">
@@ -68,5 +83,4 @@
         </div>
     </div>
 </body>
-
 </html>
