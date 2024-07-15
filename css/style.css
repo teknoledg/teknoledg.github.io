@@ -17,7 +17,7 @@ body {
 }
 
 .logo-container img {
-    width: 60vw;
+    width: 65vw; /* Updated logo image size to scale 25% more than the window */
     padding-top: 5vh;
     padding-left: 5vw;
     margin-bottom: -46px;
@@ -28,7 +28,7 @@ body {
 #tagline-container span#number-element {
     color: white;
     font-weight: 300;
-    font-size: 2.85vw;
+    font-size: 1.9vw; /* Updated font size */
     text-align: left;
     font-family: 'Roboto', sans-serif;
     transform: scale(1);
@@ -42,31 +42,31 @@ body {
 }
 
 #tagline-container {
-    width: 90vw;
     display: flex;
     flex-wrap: wrap;
     padding-left: 15px;
 }
 
 .wrapper {
-    width: 50vw;
+    width: 40vw;
     height: 50vh;
+    padding-left: 3vw;
+
 }
 
 .logo {
-    width: 90vw;
+    width: 40vw;
 }
 
 .ai-container {
     position: fixed;
-    left: 20vw;
-    height: 90vh;
+    right: 0;
     text-align: right;
-    max-height: 95vh;
+    display: block;
 }
 
+
 .ai-img {
-    max-width: 90%;
     max-height: 90vh; /* Ensuring the image never grows taller than the tagline */
     display: block;
     opacity: 1;
@@ -74,6 +74,7 @@ body {
     position: fixed;
     bottom: 0;
     right: 0;
+    height: 80vh;
 }
 
 #img1, #img2 {
@@ -82,6 +83,13 @@ body {
 
 #img2 {
     animation-delay: 2.5s;
+}
+
+@media (min-width: 1025px) {
+    #tagline-container span#text-element,
+    #tagline-container span#number-element {
+        font-size: 1.9vw; /* Updated font size */
+    }
 }
 
 @media (max-width: 1024px) {
@@ -97,7 +105,7 @@ body {
         z-index: 9999;
     }
     .logo-container img {
-        width: 90vw;
+        width: 65vw; /* Updated logo image size to scale 25% more than the window */
         padding-top: 5vh;
         padding-left: 5vw;
         margin-bottom: -46px;
@@ -107,85 +115,27 @@ body {
         margin-top: 4.6vh;
         padding-left: 2vw;
         padding-right: 2vw;
-        width: 90vw;
+        width: 40vw;
         text-align: center;
     }
     .logo {
         width: 90vw;
     }
     .logo img {
-        width: 90vw;
+        width: 90vw; /* Updated logo image size to scale 25% more than the window */
+    }
+    .ai-container {
+        overflow: hidden;
+        right: 0vw;
+        transition: transform 2s;
+        /* right: -20vw; */
     }
     .ai-container .ai-img {
-        min-height: 90vw;
-        transform: scale(1);
-    }
-    .ai-img {
-        min-height: 80vh;
-        max-width: 90%;
-        max-height: 90vh; /* Ensuring the image never grows taller than the tagline */
-    }
-}
 
-
-@media (max-width: 768px) {
-    .fullscreen {
-        width: 100vw;
-        height: 100vh;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 9999;
-    }
-    .logo-container img {
-        width: 90vw;
-        padding-top: 5vh;
-        padding-left: 5vw;
-        margin-bottom: -46px;
-        max-width: 90vw;
+        /* transform: translateX(-40vw); */
+        /* transition: transformX 2s; */
     }
     .logo-container #tagline-container {
-        margin-top: 4.6vh;
-        padding-left: 2vw;
-        padding-right: 2vw;
-        width: 90vw;
-        text-align: center;
+        /* font-size: 0.8em; */
     }
-    .logo {
-        width: 90vw;
-    }
-    .logo img {
-        width: 90vw;
-    }
-}
 
-@media (max-width: 480px) {
-    .fullscreen {
-        width: 100vw;
-        height: 100vh;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 9999;
-    }
-    .logo-container img {
-        width: 90vw;
-        padding-top: 5vh;
-        padding-left: 5vw;
-        margin-bottom: -46px;
-        max-width: 95vw;
-    }
-    .logo-container #tagline-container {
-        margin-top: 4.6vh;
-        padding-left: 2vw;
-        padding-right: 2vw;
-        width: 90vw;
-        text-align: center;
-    }
-    .logo {
-        width: 90vw;
-    }
-    .logo img {
-        width: 90vw;
-    }
-}
