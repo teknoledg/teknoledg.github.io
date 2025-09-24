@@ -1,0 +1,409 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.fullscreen {
+    display: flex;
+    background-image: linear-gradient(to bottom right, #153965, #72829B, #D99BA5, #D9589A);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    margin: 0px;
+    padding: 20px;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    overflow: hidden;
+}
+
+.content {
+    text-align: center;
+    color: #fff;
+    z-index: 1;
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+@media screen (min-width: 300px) {
+    .content {
+        padding: 0px;
+    }
+
+    p {
+        size: 20px
+    }
+
+    .logo {
+        width: 120%;
+        margin: 0 auto;
+        transform: scale(1.5);
+    }
+    
+    #tagline {
+        text-align: center;
+        margin: 0 auto;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    #tagline p {
+        font-size: 0.6em;
+    }
+}
+
+@media screen (min-width: 500px) {
+    .content {
+        padding: 10px;
+    }
+
+    .logo {
+        width: 90%;
+        margin: 0 auto;
+        transform: scale(1.5);
+    }
+    
+    #tagline {
+        text-align: center;
+        margin: 0 auto;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    #tagline p {
+        font-size: 0.7em;
+    }
+}
+
+@media screen (min-width: 700px) {
+    .content {
+        padding: 20px;
+    }
+
+    p {
+        size: 30px;
+        text-align: Justify;
+    }
+}
+
+
+.ai {
+    display: flex;
+    bottom: 0;
+    z-index: 0;
+    margin: 0;
+    padding-top: 10px;
+    box-sizing: border-box;
+    position: fixed;
+    right: 0;
+    width: auto;
+    max-width: 50%;
+    max-height: 80vh;
+}
+
+.ai img {
+    display: flex;
+    max-width: 100%;
+    max-height: 80vh;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    box-sizing: border-box;
+    object-fit: contain;
+}
+
+
+.ai img:nth-child(1) {
+    z-index: -1;
+}
+
+.ai img:nth-child(2) {
+    z-index: -2;
+}
+
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 67.5%;
+    position: relative;
+    padding-bottom: -10px;
+    margin: 0 auto;
+    transform: scale(1.5);
+}
+
+#tagline {
+    margin-top: -5px;
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+p {
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 800;
+    font-size: 1.2em;
+    margin: 0;
+    padding: 0;
+}
+
+#tagline p {
+    font-size: 0.7em;
+    line-height: 1.2;
+}
+
+.ai img.visible {
+    opacity: 1;
+    position: absolute;
+}
+
+/* Glassmorphic Form Styles */
+.glassmorphic-form {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 25px;
+    margin: 20px auto 40px auto;
+    max-width: 350px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    text-align: center;
+    color: white;
+    position: relative;
+    z-index: 2;
+}
+
+.glassmorphic-form h3 {
+    margin: 0 0 15px 0;
+    font-size: 1.5em;
+    font-weight: 600;
+    color: white;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.glassmorphic-form p {
+    margin: 0 0 25px 0;
+    font-size: 0.9em;
+    opacity: 0.9;
+    line-height: 1.4;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.glassmorphic-form input {
+    width: 100%;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    font-family: Helvetica, Arial, sans-serif;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.glassmorphic-form input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.glassmorphic-form input:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: Helvetica, Arial, sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.submit-btn:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2));
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+/* Responsive adjustments for the form */
+@media screen and (max-width: 500px) {
+    .glassmorphic-form {
+        margin: 20px 10px;
+        padding: 20px;
+        max-width: 300px;
+    }
+    
+    .glassmorphic-form h3 {
+        font-size: 1.3em;
+    }
+    
+    .glassmorphic-form p {
+        font-size: 0.85em;
+    }
+    
+    .ai {
+        max-width: 40%;
+        max-height: 70vh;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .content {
+        max-width: 100%;
+        padding: 10px;
+    }
+    
+    .glassmorphic-form {
+        max-width: 320px;
+        margin: 15px auto 30px auto;
+    }
+    
+    .ai {
+        max-width: 45%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .content {
+        max-width: 700px;
+    }
+    
+    .glassmorphic-form {
+        max-width: 400px;
+    }
+}
+
+/* Glassmorphic Logos Container under form */
+.bottom-logos {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+    margin: 40px auto 0 auto;
+    max-width: 600px;
+}
+
+/* Bottom Glassmorphic Logo */
+.bottom-logo {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 15px 25px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    transition: all 0.3s ease;
+}
+
+.bottom-logo:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.5);
+}
+
+.bottom-logo-img {
+    height: 80px;
+    width: auto;
+    filter: 
+        drop-shadow(0 0 10px rgba(255, 255, 255, 0.3))
+        drop-shadow(0 0 20px rgba(255, 255, 255, 0.2))
+        brightness(1.3)
+        contrast(1.1);
+    transition: all 0.3s ease;
+    opacity: 0.9;
+}
+
+/* Make THRPY logo white, no shadows, 10% transparent */
+.bottom-logos .bottom-logo:first-child .bottom-logo-img {
+    filter: 
+        invert(1)
+        hue-rotate(180deg);
+    opacity: 0.9;
+}
+
+.bottom-logo:hover .bottom-logo-img {
+    filter: 
+        drop-shadow(0 0 15px rgba(255, 255, 255, 0.5))
+        drop-shadow(0 0 30px rgba(255, 255, 255, 0.3))
+        brightness(1.5)
+        contrast(1.2);
+    transform: scale(1.05);
+    opacity: 1;
+}
+
+/* THRPY logo hover effect - keep it white, no shadows, 10% transparent */
+.bottom-logos .bottom-logo:first-child:hover .bottom-logo-img {
+    filter: 
+        invert(1)
+        hue-rotate(180deg);
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+/* Responsive adjustments for logos under form */
+@media screen and (max-width: 768px) {
+    .bottom-logos {
+        gap: 20px;
+        margin: 30px auto 0 auto;
+    }
+    
+    .bottom-logo {
+        padding: 15px 20px;
+    }
+    
+    .bottom-logo-img {
+        height: 60px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .bottom-logos {
+        gap: 15px;
+        margin: 20px auto 0 auto;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .bottom-logo {
+        padding: 12px 15px;
+    }
+    
+    .bottom-logo-img {
+        height: 50px;
+    }
+}
