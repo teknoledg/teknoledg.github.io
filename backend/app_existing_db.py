@@ -44,7 +44,7 @@ SMTP_SERVER = os.getenv('SMTP_SERVER', 'mail.teknoledg.com')
 SMTP_PORT = int(os.getenv('SMTP_PORT', 587))
 EMAIL_USER = os.getenv('EMAIL_USER', 'noreply@teknoledg.com')
 EMAIL_PASSWORD = os.getenv('EMAIL_PASSWORD', '')
-ADMIN_EMAIL = 'tim@teknoledg.com'
+ADMIN_EMAIL = 'hello@thepersonaldataexchange.com'
 
 def get_db_connection():
     """Get connection to existing database"""

@@ -1,0 +1,8 @@
+
+DB_SERVER= Server: tb-be03-linweb054.srv.teamblue-ops.net:3306
+DB_NAME=gdibat_teknoledg
+DB_NAME=gdibat_teknoledg 
+DB_U=gdibat_admin
+DB_P=tiqdeq-4mukhi-ryjByb
+
+# DB_HOST_WEB_PATH=/sites/thepersonaldataexchange.com/
