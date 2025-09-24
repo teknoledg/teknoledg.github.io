@@ -39,7 +39,7 @@ window.onload = function() {
 			try {
 				// Submit to backend
         // Update this URL to your deployed backend
-        const BACKEND_URL = 'http://178.18.127.169/backend/api.php';
+        const BACKEND_URL = 'https://data.thepersonaldataexchange.com/backend/api.php';
         
         // Create form data for PHP backend
         const formData = new FormData();
