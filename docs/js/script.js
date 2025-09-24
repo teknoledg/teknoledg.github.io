@@ -39,16 +39,17 @@ window.onload = function() {
 			try {
 				// Submit to backend
         // Update this URL to your deployed backend
-        const BACKEND_URL = 'https://your-backend-url.railway.app'; // Change this to your actual backend URL
-        const response = await fetch(`${BACKEND_URL}/api/register`, {
+        const BACKEND_URL = 'http://178.18.127.169/backend/api.php';
+        
+        // Create form data for PHP backend
+        const formData = new FormData();
+        formData.append('action', 'register');
+        formData.append('email', email);
+        formData.append('name', name);
+        
+        const response = await fetch(BACKEND_URL, {
 					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json',
-					},
-					body: JSON.stringify({
-						email: email,
-						name: name
-					})
+					body: formData
 				});
 				
 				const result = await response.json();
