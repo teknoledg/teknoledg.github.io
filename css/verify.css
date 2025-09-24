@@ -58,12 +58,12 @@
 
 .certificate-info p {
     margin: 5px 0;
-    color: #cccccc;
+    color: #36454F;
     font-size: 0.9em;
 }
 
 .certificate-info strong {
-    color: #ffffff;
+    color: #36454F;
     font-weight: bold;
 }
 
