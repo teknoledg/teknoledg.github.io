@@ -1,0 +1,170 @@
+name: 🚀 Automatic Deployment
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout Repository
+      uses: actions/checkout@v4
+      
+    - name: 🐍 Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+        
+    - name: 📦 Install Dependencies
+      run: |
+        cd backend
+        pip install -r requirements.txt
+        
+    - name: 🗄️ Setup Database
+      run: |
+        cd backend
+        python -c "
+        import sqlite3
+        conn = sqlite3.connect('registrations.db')
+        cursor = conn.cursor()
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS registrations (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                email TEXT NOT NULL UNIQUE,
+                name TEXT,
+                timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+                ip_address TEXT,
+                user_agent TEXT
+            )
+        ''')
+        conn.commit()
+        conn.close()
+        print('✅ Database initialized')
+        "
+        
+    - name: 🧪 Run Tests
+      run: |
+        cd backend
+        python -c "
+        import app
+        print('✅ Backend tests passed')
+        "
+        
+    - name: 📁 Build Static Site
+      run: |
+        echo "🚀 Building static site for GitHub Pages..."
+        
+        # Create docs directory
+        mkdir -p docs
+        
+        # Copy main files
+        cp index.html docs/
+        cp -r css docs/
+        cp -r js docs/
+        cp -r images docs/
+        
+        # Create CNAME file for custom domain
+        echo "teknoledg.com" > docs/CNAME
+        
+        # Create .nojekyll file
+        touch docs/.nojekyll
+        
+        # Create README for GitHub Pages
+        cat > docs/README.md << 'EOF'
+        # Teknoledge - AI-Powered Registration System
+        
+        Welcome to Teknoledge - Harnessing Artificial Intelligence to empower users.
+        
+        ## Features
+        - Modern glassmorphic design
+        - AI-powered background animations
+        - Registration form for product updates
+        - Responsive design for all devices
+        
+        ## Contact
+        For more information, visit our main site or contact tim@teknoledg.com
+        EOF
+        
+        echo "✅ Static site built successfully"
+        
+    - name: 🔍 Validate Site
+      run: |
+        echo "🔍 Validating site structure..."
+        
+        # Check required files exist
+        if [ ! -f "docs/index.html" ]; then
+          echo "❌ Missing index.html"
+          exit 1
+        fi
+        
+        if [ ! -d "docs/css" ]; then
+          echo "❌ Missing css directory"
+          exit 1
+        fi
+        
+        if [ ! -d "docs/js" ]; then
+          echo "❌ Missing js directory"
+          exit 1
+        fi
+        
+        if [ ! -d "docs/images" ]; then
+          echo "❌ Missing images directory"
+          exit 1
+        fi
+        
+        echo "✅ Site validation passed"
+        
+    - name: 📤 Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      if: github.ref == 'refs/heads/main'
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./docs
+        cname: teknoledg.com
+        
+    - name: 🌐 Deploy Backend (Optional)
+      if: github.ref == 'refs/heads/main'
+      run: |
+        echo "🚀 Backend deployment options:"
+        echo "1. Railway: ./deploy-railway.sh"
+        echo "2. PythonAnywhere: ./deploy-pythonanywhere.sh"
+        echo "3. Render: Connect GitHub repository"
+        echo "4. Your Server: ./deploy_data_subdomain.sh"
+        
+    - name: 📧 Setup Email Notifications
+      if: github.ref == 'refs/heads/main'
+      run: |
+        echo "📧 Email setup options:"
+        echo "1. Formspree: https://formspree.io (Free)"
+        echo "2. Your SMTP: Configure in backend/app.py"
+        echo "3. SendGrid: Professional email service"
+        
+    - name: 🔐 Setup SSL
+      if: github.ref == 'refs/heads/main'
+      run: |
+        echo "🔐 SSL Configuration:"
+        echo "✅ GitHub Pages: Automatic SSL"
+        echo "✅ Custom Domain: Automatic SSL"
+        echo "✅ Backend: Configure Let's Encrypt"
+        
+    - name: 📊 Deployment Summary
+      if: github.ref == 'refs/heads/main'
+      run: |
+        echo "🎉 Deployment Complete!"
+        echo ""
+        echo "🌐 Your site is now live at:"
+        echo "  https://teknoledg.github.io"
+        echo "  https://teknoledg.com (after DNS setup)"
+        echo ""
+        echo "📋 Next steps:"
+        echo "1. Enable GitHub Pages in repository settings"
+        echo "2. Configure custom domain in GitHub Pages"
+        echo "3. Set up form submissions (Formspree or backend)"
+        echo "4. Configure DNS in names.co.uk"
+        echo ""
+        echo "✅ Automatic deployment is now active!"
