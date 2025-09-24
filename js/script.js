@@ -39,17 +39,18 @@ window.onload = function() {
 			try {
 				// Submit to backend
         // Update this URL to your deployed backend
-        const BACKEND_URL = 'http://178.18.127.169/backend/api.php';
+        const BACKEND_URL = 'https://teknoledg-api.vercel.app/api/register';
         
-        // Create form data for PHP backend
-        const formData = new FormData();
-        formData.append('action', 'register');
-        formData.append('email', email);
-        formData.append('name', name);
-        
+        // Create JSON payload for Vercel API
         const response = await fetch(BACKEND_URL, {
 					method: 'POST',
-					body: formData
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify({
+						email: email,
+						name: name
+					})
 				});
 				
 				const result = await response.json();
