@@ -1,34 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>teknoledg - we'll soon restore order, improve security and balance the data economy.</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Share Certificate Verification - Teknoledge</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="/js/script.js"></script> 
+    <link rel="stylesheet" href="css/verify.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode/1.5.3/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qr-scanner/1.4.2/qr-scanner.min.js"></script>
 </head>
 <body>
     <div class="fullscreen">
         <div class="content">
             <h1><img class="logo" src="images/teknoled-G_white.svg" alt="Teknoledge Holdings"></h1>
             <div id="tagline">
-                <p class="logo">Harnessing Artificial Intelligence to empower users.</p>
+                <p class="logo">Share Certificate Verification System</p>
             </div>
             
-            <!-- Glassmorphic Update Registration Form -->
+            <!-- Certificate Verification Form -->
             <div class="glassmorphic-form">
-                <h3>Sign up for product updates</h3>
-                <p>Get notified of the launch of our upcoming products.</p>
-                <form id="updateForm">
-                    <div class="form-group">
-                        <input type="email" id="email" name="email" placeholder="Enter your email address" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="name" name="name" placeholder="Your name (optional)">
-                    </div>
-                    <button type="submit" class="submit-btn">Register for Updates</button>
-                </form>
+                <h3>Verify Share Certificate</h3>
+                <p>Scan QR code or enter certificate number to verify authenticity</p>
+                
+                <!-- QR Scanner -->
+                <div class="qr-scanner-container">
+                    <button id="startScanner" class="submit-btn">📱 Scan QR Code</button>
+                    <div id="qr-reader" style="display: none;"></div>
+                    <button id="stopScanner" class="submit-btn" style="display: none;">Stop Scanner</button>
+                </div>
+                
+                <!-- Manual Entry -->
+                <div class="form-group">
+                    <input type="text" id="certificateNumber" placeholder="Enter Certificate Number (e.g., 000001)" maxlength="6">
+                </div>
+                
+                <button id="verifyCertificate" class="submit-btn">🔍 Verify Certificate</button>
+                
+                <!-- Results -->
+                <div id="verificationResults" style="display: none;">
+                    <div id="certificateInfo"></div>
+                </div>
             </div>
             
-            <!-- Glassmorphic Logos under form -->
+            <!-- Glassmorphic Logos -->
             <div class="bottom-logos">
                 <div class="bottom-logo">
                     <img src="images/THRPY_Logo_B.svg" alt="THRPY Logo" class="bottom-logo-img">
@@ -48,10 +62,10 @@
                 <div class="footer-section">
                     <h4>Company</h4>
                     <ul>
+                        <li><a href="index.html">Home</a></li>
                         <li><a href="#about">About Us</a></li>
                         <li><a href="#team">Our Team</a></li>
                         <li><a href="#careers">Careers</a></li>
-                        <li><a href="#news">News</a></li>
                     </ul>
                 </div>
                 
@@ -71,7 +85,7 @@
                         <li><a href="#help">Help Center</a></li>
                         <li><a href="#contact">Contact Us</a></li>
                         <li><a href="#status">System Status</a></li>
-                        <li><a href="verify.html" class="verify-link">🔍 Verify Share Certificate</a></li>
+                        <li><a href="verify.html" class="verify-link active">🔍 Verify Share Certificate</a></li>
                     </ul>
                 </div>
                 
@@ -105,7 +119,7 @@
             <img src="images/ai-selfie-2.png" alt="Image" class="visible" id="2">
         </div>
     </div>
-    </div>
+    
+    <script src="js/verify.js"></script>
 </body>
 </html>
-
