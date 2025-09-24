@@ -31,9 +31,9 @@
 }
 
 .certificate-valid {
-    background: rgba(0, 255, 0, 0.1);
-    border: 2px solid rgba(0, 255, 0, 0.3);
-    color: #00ff00;
+    background: rgba(135, 206, 250, 0.1);
+    border: 2px solid rgba(135, 206, 250, 0.3);
+    color: #87CEEB;
 }
 
 .certificate-invalid {
@@ -47,7 +47,7 @@
     padding: 10px;
     background: rgba(255, 255, 255, 0.05);
     border-radius: 8px;
-    border-left: 4px solid #00ff00;
+    border-left: 4px solid #87CEEB;
 }
 
 .certificate-info h4 {
